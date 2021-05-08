@@ -1,0 +1,80 @@
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Thu Apr 08 2021 05:15:57 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="6041fe11d99411f339a5cd0d" data-wf-site="603279d02467f0d06090d767">
+
+<head>
+    <meta charset="utf-8">
+    <title>Legal & Privacy</title>
+    <meta name="google" content="notranslate">
+    <meta content="Legal & Privacy" property="og:title">
+    <meta content="Legal & Privacy" property="twitter:title">
+    <!--#include file="components/head.html"-->
+    <!--#include file="components/head-css.html"-->
+    <!--#include file="components/head-js.html"-->
+</head>
+
+<body>
+    <!--#include file="components/header.html"-->
+    <div class="content-start legal-content">
+        <div class="w-container div-block-50">
+            <h1 class="faq-title">Legal & Privacy</h1>
+        </div>
+    </div>
+    <div class="tab-wrapper w-container legal-tabs">
+        <div class="button-wrapper">
+            <div>
+                <button class="tab-button button-outline active " data-target="tnc">
+                    <span class="desktop">Website Terms of Use</span>
+                    <span class="mobile">Terms</span>
+                </button>
+            </div>
+            <div><button class="tab-button button-outline" data-target="policy">Privacy Policy</button></div>
+            <div>
+                <button class="tab-button button-outline" data-target="hi-dollars-tnc">
+                    <span class="desktop">hi Dollars Token Sale Terms and Conditions</span>
+                    <span class="mobile">hi Dollars Token Sale</span>
+                </button>
+            </div>
+        </div>
+        <div id="tnc" class="div-block-50  tab-content active">
+            <!--#include file="content/website-tnc.html"-->
+        </div>
+        <div id="policy" class="div-block-50  tab-content">
+            <!--#include file="content/privacy-policy.html"-->
+        </div>
+        <div id="hi-dollars-tnc" class="div-block-50 tab-content">
+            <!--#include file="content/hi-dollars-token-sale.html"-->
+        </div>
+    </div>
+    <!--#include file="components/footer.html"-->
+    <!--#include file="components/cookie.html"-->
+    <!--#include file="components/foot-js.html"-->
+    <script src="https://www.jsdelivr.com/package/npm/pdfjs-dist" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            //url with anchor link
+            var anchorHash = window.location.href.toString();
+            if (anchorHash.lastIndexOf('#') != -1) {
+
+                anchorName = anchorHash.substr(anchorHash.lastIndexOf('#')).replace("#", "");
+
+                var button = $("button[data-target='" + anchorName + "']");
+                button.click();
+            }
+        });
+
+        $('.tab-button').click(function () {
+            $('.tab-button').removeClass('active');
+            $(this).addClass('active');
+
+            //update content
+            $('.tab-content').removeClass('active');
+
+            var show = $(this).attr("data-target");
+
+            $('div#' + show).addClass('active');
+        })
+    </script>
+</body>
+
+</html>

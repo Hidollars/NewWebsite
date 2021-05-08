@@ -1,0 +1,160 @@
+<script src="js/eventListener.js" type="text/javascript"></script>
+<script src="js/webflow.js" type="text/javascript"></script>
+<script src="js/jump.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js" type="text/javascript"></script>
+<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+<script>
+    $(document).ready(function () {
+        footerAdjustment();
+
+        $(window).resize(function () {
+            footerAdjustment();
+        });
+    });
+
+    $(document).ready(function () {
+
+        if(window.location.pathname=="/hi-dollars"){
+            $('.hi-dollars-pre-sale').click();
+            footerAdjustment();
+        }
+    });
+    //Sticky Toggle
+    $('.i-have-referrer').click(function () {
+        $(".i-have-referrer").addClass("active");
+        $(".hi-dollars-pre-sale").removeClass("active");
+
+        $(".footer-referrer").show();
+        $(".footer-pre-sales").hide();
+        footerAdjustment();
+    });
+
+    $('.hi-dollars-pre-sale').click(function () {
+        $(".hi-dollars-pre-sale").addClass("active");
+        $(".i-have-referrer").removeClass("active");
+        $(".footer-pre-sales").show();
+        $(".footer-referrer").hide();
+        footerAdjustment();
+    });
+    //Sticky Toggle
+
+    function footerAdjustment() {
+        var hi = 80;
+        $(".footer-buffer-target:visible").each(function () {
+            var h = $(this).outerHeight();
+            if (h > hi) {
+                hi = h;
+            }
+        })
+        $(".footer-buffer").height(hi);
+        $(".cookies-holder").css("bottom",hi+"px");
+    }
+    if(getCookie('start_cookie')){
+        $(".footer-referrer-no-auth").hide();
+        $(".footer-buffer").height($(".footer-auth").outerHeight());
+        $(".footer-auth").show();
+    }
+    function auth(nickname) {
+        $.ajax({
+            url: "https://www.hicn.club/api/user/getUserIdByNickname",
+            type: "get", //send it through get method
+            data: {
+                nickname: nickname
+            },
+            success: function (response) {
+                //console.log(response)
+
+
+                if (response.msg == 'success'
+                    && response.data != "") {
+                    $(".footer-referrer-no-auth").hide();
+                    $(".footer-buffer").height($(".footer-auth").outerHeight());
+                    $(".footer-auth").show();
+                    setCookie('start_cookie', 1,  15 * 60 * 1000);
+                } else {
+                    alert("Invalid input. Please try again.");
+                }
+            },
+            error: function (xhr) {
+                //Do Something to handle error
+                console.log(xhr)
+            }
+        });
+    }
+
+   
+    function setCookie(key, value, t) {
+        var oDate = new Date();
+
+        // oDate.setDate(oDate.getDate()+t);
+        oDate.setTime(oDate.getTime() + t)
+        console.log(oDate.toGMTString())
+        document.cookie = key + "=" + value + "; expires=" + oDate.toGMTString();
+    }
+    /**
+     * [getCookie 获取cookie]
+     */
+    function getCookie(key) {
+        var arr1 = document.cookie.split("; "); //由于cookie是通过一个分号+空格的形式串联起来的，所以这里需要先按分号空格截断,变成[name=Jack,pwd=123456,age=22]数组类型；
+        for (var i = 0; i < arr1.length; i++) {
+            var arr2 = arr1[i].split("="); //通过=截断，把name=Jack截断成[name,Jack]数组；
+            if (arr2[0] == key) {
+                return decodeURI(arr2[1]);
+            }
+        }
+    }
+    /**
+     * [removeCookie 移除cookie]
+     */
+    function removeCookie(key) {
+        setCookie(key, "", -1); // 把cookie设置为过期
+    };
+
+    $('.submit-referrer-button').click(function () {
+        var button = $(this);
+        var nickname = button.siblings("input").val();
+
+        if (nickname === "") {
+            console.log("Empty");
+        } else {
+            auth(nickname);
+        }
+    });
+    $("input.referrer-input").on('keypress', function (e) {
+        if (e.which === 13) {
+            var nickname = $(this).val();
+            if (nickname === "") {
+                console.log("Please enter");
+            } else {
+                auth(nickname);
+            }
+        }
+    });
+
+    $("input.referrer-input").focusin(function () {
+        $("input.referrer-input").addClass("active");
+    });
+
+    $("input.referrer-input").focusout(function () {
+        $("input.referrer-input").removeClass("active");
+    });
+
+    //Cookie JS
+    $(document).ready(function () {
+        if (localStorage.getItem('cookieAccept') != 'yes') {
+            $('.cookies-holder').show();
+            $('.cookies-holder').delay(2000).fadeIn();
+        };
+    });
+
+
+    $('.close-terms').click(function () {
+        $('.cookies-holder').fadeOut();
+    })
+
+    $('.accept-terms').click(function () {
+        localStorage.setItem('cookieAccept', 'yes')
+        $('.cookies-holder').fadeOut();
+    })
+    //End of Cookie JS
+</script>

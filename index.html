@@ -1,0 +1,197 @@
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Thu Apr 08 2021 05:15:57 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="6041fe11d99411f339a5cd0d" data-wf-site="603279d02467f0d06090d767">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hi</title>
+  <meta content="Hi" property="og:title">
+  <meta content="Hi" property="twitter:title">
+  <!--#include file="components/head.html"-->
+  <!--#include file="components/head-css.html"-->
+  <!--#include file="components/head-js.html"-->
+</head>
+
+<body class="index">
+  <!--#include file="components/header.html"-->
+  <div class="landing-content content-start">
+    <div class="main-section w-container">
+      <div class="title desktop"><img class="img-responsive" src="images/not-for-profit.svg" width="616px" alt="">
+      </div>
+      <div class="title mobile"><img src="images/not-for-profit.svg" width="50%" class="not-for-profit" alt="">
+      </div>
+      <div class="title-2">
+        <h1>Financial Services</h1>
+      </div>
+      <div class="highlight desktop">“Banking is necessary, banks are not.” – Bill Gates</div>
+      <div class="highlight mobile">“Banking is necessary, banks are not.” <br /> Bill Gates</div>
+
+    </div>
+    <div class="video-container">
+      <video class="preview-video" width="100%" autoplay muted playsinline loop poster="images/video_placeholder.png">
+        <source src="video/video-preview.mp4" type="video/mp4">
+      </video>
+      <video id="hi-landing-video-mobile" controls style="display:none;">
+        <source src="video/Hi_final cut_28April2021.mp4" type="video/mp4">
+      </video>
+      <div id="video-popup-container" class="w-container">
+        <a class="boxclose" id="video-popup-video-close-btn" onclick="hi_video_close();"></a>
+        <video id="hi-landing-video" controls>
+          <source src="video/Hi_final cut_28April2021.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div id="video-blur-layer"><img id="play-button" src="images/play-button.svg" /></div>
+      <div id="video-popup-background" onClick="hi_video_close();"></div>
+    </div>
+    <div class="second-section">
+      <div class="w-container flex selling-point-container">
+        <div class="selling-point-box">
+          <div class="selling-point">
+            <div class="icon"><img src="images/chat based.png" alt=""></div>
+            <div class="title">Already On Your Phone</div>
+            <div class="description">Our mobile app is coming soon. But before that, we are pioneering the world's first
+              cross-platform chat based financial services platform. Send and convert money directly on WhatsApp,
+              Telegram, and more.</div>
+          </div>
+        </div>
+        <div class="selling-point-box">
+          <div class="selling-point">
+            <div class="icon"><img src="images/buy bitcoin.png" alt=""></div>
+            <div class="title">The Easiest Way to Buy Bitcoin</div>
+            <div class="description"><strong>hi</strong> is not just a digital banking platform, but also a wallet
+              supporting the most popular cryptocurrencies. Easy to use, yet safe and secure, <strong>hi</strong> is
+              driving mass adoption of crypto and blockchain technologies.</div>
+          </div>
+        </div>
+        <div class="selling-point-box">
+          <div class="selling-point">
+            <div class="icon"><img src="images/team.png" alt=""></div>
+            <div class="title">Experienced and Proven Team</div>
+            <div class="description">We are composed of entrepreneurs, executives, technologists, and thinkers from:
+            </div>
+          </div>
+          <div class="team-image"><img src="images/team-brands.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+    <div class="third-section w-container member-section">
+      <div class="member-title">Members First</div>
+      <div class="member-sub-title">Let's Get hi Together</div>
+      <div class="member-benefit-section">
+        <div class="member-benefit">
+          <div class="icon desktop"><img src="images/Landing_EarnInterest_Desktop.png" alt=""></div>
+          <div class="icon mobile"><img src="images/Landing_EarnInterest 1.png" alt=""></div>
+          <div class="empty-box"></div>
+          <div class="member-benefit-content">
+            <div class="flex-1"></div>
+            <div class="title">Earn Up to 20% p.a.</div>
+            <div class="description">Superb interest rates for members. Grow your assets instead of letting them rot in
+              a bank. Safe and secure, no hidden fees or minimum balances.</div>
+            <div class="flex-1"></div>
+          </div>
+        </div>
+        <div class="member-benefit row-reverse">
+          <div class="icon desktop"><img src="images/Landing_FreeCrypto_Desktop.png" alt=""></div>
+          <div class="icon mobile"><img src="images/Landing_FreeCrypto 1.png" alt=""></div>
+          <div class="empty-box"></div>
+          <div class="member-benefit-content">
+            <div class="flex-1"></div>
+            <div class="title">Get Free Crypto</div>
+            <div class="description">3 billion USD worth of free crypto earmarked for early adopters. Sign up to get
+              some, no deposit or purchase needed.</div>
+            <div class="flex-1"></div>
+          </div>
+        </div>
+        <div class="member-benefit">
+          <div class="icon desktop"><img src="images/Landing_LifestyleBenefits_Desktop.png" alt=""></div>
+          <div class="icon mobile"><img src="images/Landing_LifestyleBenefits 1.png" alt=""></div>
+          <div class="empty-box"></div>
+          <div class="member-benefit-content">
+            <div class="flex-1"></div>
+            <div class="title">Enjoy Lifestyle Benefits</div>
+            <div class="description">Members will get free access to digital services and exclusive offers with
+              merchants.</div>
+            <div class="desktop"><img src="images/membership-logo-aligned-left.png" alt=""></div>
+            <div class="mobile"><img src="images/membership-logo-aligned-middle.png" alt=""></div>
+            <div class="flex-1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="member-section-note"><strong>Note:</strong> Not all services will be available in all markets. Terms
+        and Conditions may apply - see Whitepaper for details.</div>
+    </div>
+  </div>
+  <!--#include file="components/footer.html"-->
+  <!--#include file="components/cookie.html"-->
+  <!--#include file="components/foot-js.html"-->
+  <!-- Page Javascript -->
+  <script>
+    $(document).ready(function () {
+      var isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+      $("#video-blur-layer #play-button").on('click', function () {
+        console.log(navigator.userAgent);
+        if (isMobile) {
+          $("#hi-landing-video-mobile").show();
+          var video = $("#hi-landing-video-mobile");
+          var vid = video[0];
+          vid.play();
+          if (vid.requestFullscreen) {
+            vid.requestFullscreen();
+          } else if (vid.mozRequestFullScreen) {
+            vid.mozRequestFullScreen();
+          } else if (vid.webkitRequestFullscreen) {
+            vid.webkitRequestFullscreen();
+          }
+        } else {
+          hi_video_open();
+        }
+      });
+    });
+
+    $('video#hi-landing-video-mobile').on('pause', function () {
+      $("#hi-landing-video-mobile").hide();
+    });
+
+    $('video#hi-landing-video-mobile').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function (e) {
+      var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+      var event = state ? 'FullscreenOn' : 'FullscreenOff';
+      if (event == "FullscreenOn") {
+        $("#hi-landing-video-mobile").show();
+      } else {
+        var video = $("#hi-landing-video-mobile");
+        var vid = video[0];
+        vid.pause();
+        $("#hi-landing-video-mobile").hide();
+      }
+    });
+    /** Video **/
+    window.document.onkeydown = function (e) {
+      if (!e) {
+        e = event;
+      }
+      if (e.keyCode == 27) {
+        hi_video_close();
+      }
+    }
+
+
+    function hi_video_open() {
+      let hiVideo = $("#hi-landing-video");
+      $('#video-popup-background').css("display", 'block');
+      $('#video-popup-container').css("display", 'block');
+      $('body').css('overflow', 'hidden');
+      hiVideo.trigger('play');
+    }
+
+    function hi_video_close() {
+      var hiVideo = $("#hi-landing-video");
+      $('#video-popup-background').css("display", 'none');
+      $('#video-popup-container').css("display", 'none');
+      $('body').css('overflow', 'visible');
+      hiVideo.trigger('pause');
+    }
+  </script>
+  <!-- End of Page Javascript -->
+</body>
+
+</html>
